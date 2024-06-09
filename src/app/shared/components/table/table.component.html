@@ -1,0 +1,24 @@
+<table
+  class="custom-table"
+  mat-table
+  [dataSource]="dataSource.data | paginate : { itemsPerPage: rows, currentPage: currentPage}"
+  matSort
+  (matSortChange)="announceSortChange($event)"
+>
+  <ng-container *ngFor="let key of tableColumns" [matColumnDef]="key">
+    <th
+      mat-header-cell
+      *matHeaderCellDef
+      mat-sort-header
+      [sortActionDescription]="'Sort by ' + key"
+    >
+      {{ getColDisplayName(key) }}
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element[key] }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+</table>
+<pagination-controls class="custom-pagination" (pageChange)="currentPage = $event"></pagination-controls>
+

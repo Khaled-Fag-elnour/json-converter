@@ -1,0 +1,74 @@
+
+@import './variables.scss';
+
+.btn {
+  padding: .5rem 4rem;
+  border-radius: 8px;
+  font-size: 14px;
+  &.custom-btn-primary {
+    background-color: $primaryColor;
+    border: 1px solid $primaryColor;
+    color: #fff;
+    &:hover, &:active {
+      background-color: $primaryColorActive;
+    }
+  }
+  &.custom-btn-basic {
+    background-color: #fff;
+    border: 1px solid #777;
+  }
+}
+
+// PAGINATION
+.custom-pagination .ngx-pagination {
+  margin-top: 1rem;
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  li {
+    min-width: 40px;
+    min-height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid #777;
+    background: #fff;
+    transition: all .25s;
+    &.small-screen {
+      display: none;
+    }
+    &.current {
+      background: $primaryColor !important;
+    }
+    &:not(.disabled):hover {
+      background: $primaryColor !important;
+      a {
+        color: #fff;
+      }
+    }
+    a {
+      color: $primaryColor;
+      text-decoration: none;
+      &:hover {
+        background: unset;
+      }
+    }
+  }
+}
+.custom-pagination .ngx-pagination a, .ngx-pagination button {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+// TABLE
+.custom-table {
+  border-radius: 12px 12px 8px 8px;
+  overflow: hidden;
+  tbody tr:hover {
+    background-color: #F5F7FF !important;
+  }
+  .mdc-data-table__cell {
+    border-bottom-width: 0;
+  }
+}
